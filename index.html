@@ -2,24 +2,42 @@
 <html lang="zh">
 <head>
   <meta charset="UTF-8">
-  <title>Hogcatz Sirius Family Tree (高级控制)</title>
+  <title>Hogcatz 3D Family Tree v1.1 </title>
   <style>
     body {
       margin: 0;
       overflow: hidden;
       font-family: 'Inter', sans-serif;
+      background-color: #1a1a2e;
     }
     #3d-graph {
       width: 100vw;
       height: 100vh;
-      background-color: #1a1a2e;
-      cursor: grab; /* 让鼠标看起来可以抓取 */
     }
-    #3d-graph:active {
-      cursor: grabbing;
+    #pan-controls {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      z-index: 10;
+    }
+    #pan-controls button {
+      font-family: monospace;
+      font-size: 18px;
+      padding: 5px 10px;
+      margin: 2px;
+      background-color: rgba(255, 255, 255, 0.15);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      border-radius: 5px;
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+    }
+    #pan-controls button:hover {
+      background-color: rgba(255, 255, 255, 0.3);
     }
   </style>
-    <script src="./libs/d3.min.js"></script>
+  <script src="./libs/d3.min.js"></script>
   <script src="./libs/three.min.js"></script>
   <script src="./libs/three-spritetext.min.js"></script>
   <script src="./libs/3d-force-graph.min.js"></script>
@@ -27,9 +45,15 @@
 <body>
   <div id="3d-graph"></div>
 
+  <div id="pan-controls">
+    <button id="pan-up">↑</button>
+    <button id="pan-down">↓</button>
+    <button id="pan-left">←</button>
+    <button id="pan-right">→</button>
+  </div>
+
   <script>
-    // 为了方便使用 three.js 的内置常量，我们先把它从 window 中解构出来
-    const { THREE } = window;
+    const { THREE, d3 } = window;
 
     const photoBasePath = './photos/';
     const IDcardBasePath = './IDcard/';
@@ -38,56 +62,69 @@
       const response = await fetch('family_md.json');
       const graphData = await response.json();
 
-      // --- 关键改动 2：让布局更 3D ---
-      // 在加载数据后，给每个节点一个随机的初始 Z 坐标
-      // 这会给力导向布局一个“3D的起点”，防止它们都挤在一个平面上
       graphData.nodes.forEach(node => {
-        node.fx = node.x; // 可以固定节点的初始X,Y位置，如果你的JSON里有的话
-        node.fy = node.y;
-        node.fz = (Math.random() - 0.5) * 650; // 随机分布在 -75 到 +75 的 Z 轴空间
+        node.fz = (Math.random() - 0.5) * 400; 
       });
 
+      graphData.nodes.forEach(node => { node.isParent = node.type === 'cat' && graphData.links.some(link => link.source === node.id && link.type === 'mate'); });
+      graphData.links.forEach(link => { if (link.type === 'mate') { const sourceNode = graphData.nodes.find(n => n.id === link.source); if (sourceNode && sourceNode.gender) { link.parent_gender = sourceNode.gender; } } });
+      
+      // --- 用于手动模拟双击的变量 ---
+      let clickTimer = null;
+      let lastClickedNode = null;
 
-      // ... (此处省略之前的数据处理代码，它们保持不变)
-      graphData.nodes.forEach(node => {
-        node.isParent = node.type === 'cat' && graphData.links.some(link => link.source === node.id && link.type === 'mate');
-      });
-      graphData.links.forEach(link => {
-        if (link.type === 'mate') {
-          const sourceNode = graphData.nodes.find(n => n.id === link.source);
-          if (sourceNode && sourceNode.gender) {
-            link.parent_gender = sourceNode.gender;
-          }
-        }
-      });
-
-      // 渲染图
       const Graph = ForceGraph3D()(document.getElementById('3d-graph'))
         .graphData(graphData)
-        // ... (此处省略之前的外观配置代码，它们保持不变)
         .linkColor(link => {let color; if (link.type === 'mate') {color = link.parent_gender === 'male' ? 0x87CEEB : 0xFFB6C1;} else if (link.type === 'child') {color = link.child_line_color;} else {color = 0xcccccc;} return '#' + color.toString(16).padStart(6, '0');})
         .linkWidth(link => link.thickness || 1)
         .nodeLabel(node => {let imagePath = node.IDcardPhoto ? IDcardBasePath + node.IDcardPhoto : node.photo ? photoBasePath + node.photo : 'https://placehold.co/60x60/808080/FFFFFF?text=No+Photo'; const style = node.IDcardPhoto ? 'max-width:200px; border-radius:8px;' : 'width:60px; height:60px; border-radius:50%; object-fit:cover;'; const img = `<img src="${imagePath}" style="${style}" /><br>`; const name = node.isParent ? `<b>${node.name}</b>` : node.name; return `<div style="text-align:center; color:white; background:rgba(0,0,0,0.6); padding:6px; border-radius:6px;">${img}${name}</div>`;})
-        .onNodeClick(node => {const distance = 120; const nodePosition = { x: node.x, y: node.y, z: node.z }; const cameraTargetPosition = { x: nodePosition.x, y: nodePosition.y, z: nodePosition.z + distance }; Graph.cameraPosition(cameraTargetPosition, nodePosition, 1000); if (node.link) { window.open(node.link, '_blank'); }})
+        
+        // --- 核心修复：用 onNodeClick 手动实现双击检测 ---
+        .onNodeClick(node => {
+          if (node === lastClickedNode && clickTimer) {
+            clearTimeout(clickTimer);
+            clickTimer = null;
+            lastClickedNode = null;
+            
+            const oldTarget = Graph.controls().target;
+            const oldCamPos = Graph.camera().position;
+            const offset = new THREE.Vector3().subVectors(oldCamPos, oldTarget);
+            const newTarget = new THREE.Vector3(node.x, node.y, node.z);
+            const newCamPos = new THREE.Vector3().addVectors(newTarget, offset);
+            Graph.cameraPosition(newCamPos, newTarget, 800);
+
+          } else {
+            lastClickedNode = node;
+            clickTimer = setTimeout(() => {
+              clickTimer = null;
+              lastClickedNode = null;
+            }, 300);
+          }
+        })
+
         .nodeAutoColorBy('type')
         .nodeThreeObject(node => { const group = new THREE.Group(); if (node.type === 'cat') {const nodeSize = node.isParent ? 25 : 10; let defaultColor = node.gender === 'male' ? 0x87CEEB : node.gender === 'female' ? 0xFFB6C1 : 0xffffff; const sprite = new THREE.Sprite(new THREE.SpriteMaterial({ color: 0xffffff })); const canvas = document.createElement('canvas'); canvas.width = 128; canvas.height = 128; const ctx = canvas.getContext('2d'); ctx.beginPath(); ctx.arc(64, 64, 60, 0, 2 * Math.PI); ctx.closePath(); ctx.clip(); const img = new Image(); img.src = photoBasePath + node.photo; img.onload = () => { ctx.drawImage(img, 0, 0, 128, 128); sprite.material.map = new THREE.CanvasTexture(canvas); sprite.material.needsUpdate = true; }; img.onerror = () => { ctx.fillStyle = '#' + defaultColor.toString(16).padStart(6, '0'); ctx.fill(); sprite.material.map = new THREE.CanvasTexture(canvas); sprite.material.needsUpdate = true; }; sprite.scale.set(nodeSize * 2, nodeSize * 2, 1); group.add(sprite); const text = new SpriteText(node.name); text.textHeight = node.isParent ? 10 : 8; text.color = node.gender === 'male' ? '#87CEEB' : node.gender === 'female' ? '#FFB6C1' : node.link ? '#b0e0e6' : 'white'; text.position.y = -(nodeSize + 15); group.add(text); return group;} else if (node.type === 'litter') {const ring = new THREE.Mesh( new THREE.RingGeometry(8, 12, 32), new THREE.MeshLambertMaterial({ color: node.color || 0xffff00, transparent: true, opacity: 0.6, side: THREE.DoubleSide }) ); ring.rotation.x = Math.PI / 2; const label = new SpriteText(node.name); label.textHeight = 7; label.color = 'yellow'; ring.add(label); return ring;} })
-        .d3Force('charge', d3.forceManyBody().strength(-300))
-        .d3Force('link', d3.forceLink().id(n => n.id).distance(50))
-        // --- 关键改动 2：移除或减弱中心力 ---
-        // 将中心力设为 null，允许节点在Z轴上自由分布
-        .d3Force('center', null); 
+        .d3Force('charge', d3.forceManyBody().strength(-180))
+        .d3Force('link', d3.forceLink().id(n => n.id).distance(40))
+        .d3Force('center', d3.forceCenter().strength(0.01));
+      
+      const panAmount = 10;
+      document.getElementById('pan-up').addEventListener('click', () => pan(0, panAmount));
+      document.getElementById('pan-down').addEventListener('click', () => pan(0, -panAmount));
+      document.getElementById('pan-left').addEventListener('click', () => pan(-panAmount, 0));
+      document.getElementById('pan-right').addEventListener('click', () => pan(panAmount, 0));
 
-      // --- 关键改动 1：设置平移功能 ---
-      // 在Graph初始化之后，获取其控制器
-      const controls = Graph.controls();
-      // 设置鼠标右键（THREE.MOUSE.RIGHT）的行为为平移（PAN）
-      // 左键（THREE.MOUSE.LEFT）保持默认的旋转（ROTATE）
-      // 中键（滚轮按下）可以设为缩放（DOLLY）
-      controls.mouseButtons = {
-        LEFT: THREE.MOUSE.ROTATE,
-        MIDDLE: THREE.MOUSE.DOLLY,
-        RIGHT: THREE.MOUSE.PAN
-      };
+      function pan(x, y) {
+        const cam = Graph.camera();
+        const target = Graph.controls().target;
+        const newCamPos = Object.assign({}, cam.position);
+        const newTarget = Object.assign({}, target);
+        newCamPos.x += x;
+        newCamPos.y += y;
+        newTarget.x += x;
+        newTarget.y += y;
+        Graph.cameraPosition(newCamPos, newTarget, 200);
+      }
     }
 
     loadGraphData();
