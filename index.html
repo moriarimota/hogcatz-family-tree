@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">   <title>Hogcatz Family Tree (摆烂不想改布局版)</title>
-  <style>
-    body {
-      margin: 0;
-      overflow: hidden;
-      font-family: 'Inter', sans-serif;
-      background-color: #1a1a2e;
-    }
-    #3d-graph {
-      width: 100vw;
-      height: 100vh;
-    }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <title>Hogcatz Family Tree (无法聚焦版)</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      font-family: 'Inter', sans-serif;
+      background-color: #1a1a2e;
+    }
+    #3d-graph {
+      width: 100vw;
+      height: 100vh;
+    }
     #pan-controls {
       position: absolute;
       bottom: 20px;
@@ -55,14 +56,14 @@
         gap: 10px; /* 增大按钮间距 */
       }
     }
-  </style>
-  <script src="./libs/d3.min.js"></script>
-  <script src="./libs/three.min.js"></script>
-  <script src="./libs/three-spritetext.min.js"></script>
-  <script src="./libs/3d-force-graph.min.js"></script>
+  </style>
+  <script src="./libs/d3.min.js"></script>
+  <script src="./libs/three.min.js"></script>
+  <script src="./libs/three-spritetext.min.js"></script>
+  <script src="./libs/3d-force-graph.min.js"></script>
 </head>
 <body>
-  <div id="3d-graph"></div>
+  <div id="3d-graph"></div>
   <div id="pan-controls">
     <button id="pan-up">↑</button>
     <button id="pan-down">↓</button>
@@ -70,111 +71,228 @@
     <button id="pan-right">→</button>
   </div>
 
-  <script>
+  <script>
     const { THREE, d3 } = window;
 
-    const photoBasePath = './photos/';
-    const IDcardBasePath = './IDcard/';
+    const photoBasePath = './photos/';
+    const IDcardBasePath = './IDcard/';
 
-    async function loadGraphData() {
-      const response = await fetch('family_md.json');
-      const graphData = await response.json();
+    async function loadGraphData() {
+      const response = await fetch('family_md.json');
+      const graphData = await response.json();
       
-      // (省略其他数据处理...)
-      graphData.nodes.forEach(node => { node.isParent = node.type === 'cat' && graphData.links.some(link => link.source === node.id && link.type === 'mate'); });
-      graphData.links.forEach(link => { if (link.type === 'mate') { const sourceNode = graphData.nodes.find(n => n.id === link.source); if (sourceNode && sourceNode.gender) { link.parent_gender = sourceNode.gender; } } });
-      
+      // 调整节点初始位置：父母节点在较高 Z 轴，窝次和孩子节点在较低 Z 轴
+      graphData.nodes.forEach(node => {
+        node.isParent = node.type === 'cat' && graphData.links.some(link => link.source === node.id && link.type === 'mate');
+        if (node.type === 'cat' && node.isParent) {
+          node.z = 600; // 父母节点初始 Z 轴位置较高
+        } else if (node.type === 'litter') {
+          node.z = 50; // 窝次节点初始 Z 轴位置中等
+        } else {
+          node.z = 0; // 孩子节点初始 Z 轴位置较低
+        }
+      });
+
       let clickTimer = null;
       let lastClickedNode = null;
 
-      const Graph = ForceGraph3D()(document.getElementById('3d-graph'))
-        .graphData(graphData)
-        // (省略外观配置...)
-        .linkColor(link => {let color; if (link.type === 'mate') {color = link.parent_gender === 'male' ? 0x87CEEB : 0xFFB6C1;} else if (link.type === 'child') {color = link.child_line_color;} else {color = 0xcccccc;} return '#' + color.toString(16).padStart(6, '0');})
+      const Graph = ForceGraph3D()(document.getElementById('3d-graph'))
+        .graphData(graphData)
+        .linkColor(link => {
+          let color;
+          if (link.type === 'mate') {
+            color = link.parent_gender === 'male' ? 0x87CEEB : 0xFFB6C1;
+          } else if (link.type === 'child') {
+            color = link.child_line_color;
+          } else {
+            color = 0xcccccc;
+          }
+          return '#' + color.toString(16).padStart(6, '0');
+        })
         .linkWidth(link => link.thickness || 1)
-        .nodeLabel(node => {let imagePath = node.IDcardPhoto ? IDcardBasePath + node.IDcardPhoto : node.photo ? photoBasePath + node.photo : 'https://placehold.co/60x60/808080/FFFFFF?text=No+Photo'; const style = node.IDcardPhoto ? 'max-width:200px; border-radius:8px;' : 'width:60px; height:60px; border-radius:50%; object-fit:cover;'; const img = `<img src="${imagePath}" style="${style}" /><br>`; const name = node.isParent ? `<b>${node.name}</b>` : node.name; return `<div style="text-align:center; color:white; background:rgba(0,0,0,0.6); padding:6px; border-radius:6px;">${img}${name}</div>`;})
-        .onNodeClick(node => { if (node === lastClickedNode && clickTimer) { clearTimeout(clickTimer); clickTimer = null; lastClickedNode = null; const oldTarget = Graph.controls().target; const oldCamPos = Graph.camera().position; const offset = new THREE.Vector3().subVectors(oldCamPos, oldTarget); const newTarget = new THREE.Vector3(node.x, node.y, node.z); const newCamPos = new THREE.Vector3().addVectors(newTarget, offset); Graph.cameraPosition(newCamPos, newTarget, 800); } else { lastClickedNode = node; clickTimer = setTimeout(() => { clickTimer = null; lastClickedNode = null; }, 300); } })
+        .nodeLabel(node => {
+          let imagePath = node.IDcardPhoto 
+            ? IDcardBasePath + node.IDcardPhoto 
+            : node.photo 
+            ? photoBasePath + node.photo 
+            : 'https://placehold.co/60x60/808080/FFFFFF?text=No+Photo';
+          const style = node.IDcardPhoto 
+            ? 'max-width:200px; border-radius:8px;' 
+            : 'width:60px; height:60px; border-radius:50%; object-fit:cover;';
+          const img = `<img src="${imagePath}" style="${style}" /><br>`;
+          const name = node.isParent ? `<b>${node.name}</b>` : node.name;
+          return `<div style="text-align:center; color:white; background:rgba(0,0,0,0.6); padding:6px; border-radius:6px;">${img}${name}</div>`;
+        })
+        .onNodeClick(node => {
+          if (node === lastClickedNode && clickTimer) {
+            clearTimeout(clickTimer);
+            clickTimer = null;
+            lastClickedNode = null;
+            const oldTarget = Graph.controls().target;
+            const oldCamPos = Graph.camera().position;
+            const offset = new THREE.Vector3().subVectors(oldCamPos, oldTarget);
+            const newTarget = new THREE.Vector3(node.x, node.y, node.z);
+            const newCamPos = new THREE.Vector3().addVectors(newTarget, offset);
+            Graph.cameraPosition(newCamPos, newTarget, 800);
+          } else {
+            lastClickedNode = node;
+            clickTimer = setTimeout(() => {
+              clickTimer = null;
+              lastClickedNode = null;
+            }, 300);
+          }
+        })
         .nodeAutoColorBy('type')
-        .nodeThreeObject(node => { const group = new THREE.Group(); if (node.type === 'cat') {const nodeSize = node.isParent ? 35 : 10; let defaultColor = node.gender === 'male' ? 0x87CEEB : node.gender === 'female' ? 0xFFB6C1 : 0xffffff; const sprite = new THREE.Sprite(new THREE.SpriteMaterial({ color: 0xffffff })); const canvas = document.createElement('canvas'); canvas.width = 128; canvas.height = 128; const ctx = canvas.getContext('2d'); ctx.beginPath(); ctx.arc(64, 64, 60, 0, 2 * Math.PI); ctx.closePath(); ctx.clip(); const img = new Image(); img.src = photoBasePath + node.photo; img.onload = () => { ctx.drawImage(img, 0, 0, 128, 128); sprite.material.map = new THREE.CanvasTexture(canvas); sprite.material.needsUpdate = true; }; img.onerror = () => { ctx.fillStyle = '#' + defaultColor.toString(16).padStart(6, '0'); ctx.fill(); sprite.material.map = new THREE.CanvasTexture(canvas); sprite.material.needsUpdate = true; }; sprite.scale.set(nodeSize * 2, nodeSize * 2, 1); group.add(sprite); const text = new SpriteText(node.name); text.textHeight = node.isParent ? 10 : 8; text.color = node.gender === 'male' ? '#87CEEB' : node.gender === 'female' ? '#FFB6C1' : node.link ? '#b0e0e6' : 'white'; text.position.y = -(nodeSize + 15); group.add(text); return group;} else if (node.type === 'litter') {const ring = new THREE.Mesh( new THREE.RingGeometry(8, 12, 32), new THREE.MeshLambertMaterial({ color: node.color || 0xffff00, transparent: true, opacity: 0.6, side: THREE.DoubleSide }) ); ring.rotation.x = Math.PI / 2; const label = new SpriteText(node.name); label.textHeight = 7; label.color = 'yellow'; ring.add(label); return ring;} })
+        .nodeThreeObject(node => {
+          const group = new THREE.Group();
+          if (node.type === 'cat') {
+            const nodeSize = node.isParent ? 35 : 10;
+            let defaultColor = node.gender === 'male' 
+              ? 0x87CEEB 
+              : node.gender === 'female' 
+              ? 0xFFB6C1 
+              : 0xffffff;
+            const sprite = new THREE.Sprite(new THREE.SpriteMaterial({ color: 0xffffff }));
+            const canvas = document.createElement('canvas');
+            canvas.width = 128;
+            canvas.height = 128;
+            const ctx = canvas.getContext('2d');
+            ctx.beginPath();
+            ctx.arc(64, 64, 60, 0, 2 * Math.PI);
+            ctx.closePath();
+            ctx.clip();
+            const img = new Image();
+            img.src = photoBasePath + node.photo;
+            img.onload = () => {
+              ctx.drawImage(img, 0, 0, 128, 128);
+              sprite.material.map = new THREE.CanvasTexture(canvas);
+              sprite.material.needsUpdate = true;
+            };
+            img.onerror = () => {
+              ctx.fillStyle = '#' + defaultColor.toString(16).padStart(6, '0'); 
+              ctx.fill();
+              sprite.material.map = new THREE.CanvasTexture(canvas);
+              sprite.material.needsUpdate = true;
+            };
+            sprite.scale.set(nodeSize * 2, nodeSize * 2, 1);
+            group.add(sprite);
+            const text = new SpriteText(node.name);
+            text.textHeight = node.isParent ? 10 : 8;
+            text.color = node.gender === 'male' 
+              ? '#87CEEB' 
+              : node.gender === 'female' 
+              ? '#FFB6C1' 
+              : node.link 
+              ? '#b0e0e6' 
+              : 'white';
+            text.position.y = -(nodeSize + 15);
+            group.add(text);
+            return group;
+          } else if (node.type === 'litter') {
+            const ring = new THREE.Mesh(
+              new THREE.RingGeometry(8, 12, 32),
+              new THREE.MeshLambertMaterial({
+                color: node.color || 0xffff00,
+                transparent: true,
+                opacity: 0.6,
+                side: THREE.DoubleSide
+              })
+            );
+            ring.rotation.x = Math.PI / 2;
+            const label = new SpriteText(node.name);
+            label.textHeight = 7;
+            label.color = 'yellow';
+            ring.add(label);
+            return ring;
+          }
+        })
         
-        .d3Force('charge', d3.forceManyBody().strength(-150)) // 可以适当调整排斥力
-        // --- 关键改动2: 星系布局 ---
-        .d3Force('link', d3.forceLink()
-            .id(d => d.id)
-            .distance(link => {
-                const isSourceLitter = link.source.type === 'litter';
-                const isTargetLitter = link.target.type === 'litter';
-                
-                // 窝次 -> 父母, 或 父母 -> 窝次
-                if ((isSourceLitter && link.target.type === 'cat') || (isTargetLitter && link.source.type === 'cat')) {
-                    return 80; // 窝次与父母的距离
-                }
-                // 窝次 -> 孩子 (这里我们假设孩子与窝次的连线类型也是'child')
-                if (isSourceLitter && link.target.type !== 'cat') { // 假设非父母的连接都是孩子
-                    return 10; // 窝次与孩子的距离
-                }
-                return 50; // 其他默认距离
-            })
-            .strength(link => {
-                const isSourceLitter = link.source.type === 'litter';
-                const isTargetLitter = link.target.type === 'litter';
-
-                if (link.type === 'mate') {
-                    return 0.5; // 配偶引力
-                }
-                if ((isSourceLitter && link.target.type === 'cat') || (isTargetLitter && link.source.type === 'cat')) {
-                    return 0.2; // 窝次与父母的引力（较弱，允许飘动）
-                }
-                if (isSourceLitter && link.target.type !== 'cat') {
-                    return 0.9; // 窝次与孩子的引力（最强）
-                }
-                return 0.1; // 其他默认引力
-            })
+        // --- 引入 Z 轴分层力 ---
+        .d3Force('z-axis', d3.forceZ()
+          .y(d => d.type === 'cat' && d.isParent ? 100 : d.type === 'litter' ? 50 : 0)
+          .strength(0.3) // 控制 Z 轴分层力的强度
         )
+
+        // --- 增强窝次与孩子之间的引力，降低全局斥力强度 ---
+        .d3Force('charge', d3.forceManyBody().strength(-125)) // 降低全局斥力强度
+        .d3Force('link', d3.forceLink()
+          .id(d => d.id)
+          .distance(link => {
+            const isSourceLitter = link.source.type === 'litter';
+            const isTargetLitter = link.target.type === 'litter';
+
+            // 窝次 -> 父母, 或 父母 -> 窝次
+            if ((isSourceLitter && link.target.type === 'cat') || (isTargetLitter && link.source.type === 'cat')) {
+              return 150; // 窝次与父母的距离
+            }
+            // 窝次 -> 孩子
+            if (isSourceLitter && link.target.type !== 'cat') {
+              return 30; // 窝次与孩子的距离
+            }
+            return 50; // 其他默认距离
+          })
+          .strength(link => {
+            const isSourceLitter = link.source.type === 'litter';
+            const isTargetLitter = link.target.type === 'litter';
+
+            if (link.type === 'mate') {
+              return -0.1; // 配偶引力
+            }
+            if ((isSourceLitter && link.target.type === 'cat') || (isTargetLitter && link.source.type === 'cat')) {
+              return 0.2; // 窝次与父母的引力（较弱）
+            }
+            if (isSourceLitter && link.target.type !== 'cat') {
+              return 0.8; // 窝次与孩子的引力（最强）
+            }
+            return 0.1; // 其他默认引力
+          })
+        )
+
+
         .d3Force('center', d3.forceCenter().strength(0.01));
-      
-      // --- 关键改动1.1: 持续平移功能 ---
+
+      // --- 持续平移功能（未改动）---
       const panSpeed = 1.0;
       let panLoopId;
 
       function startPanning(x, y) {
-          if (panLoopId) return; // 如果已经在移动，则不做任何事
-          function panLoop() {
-              const cam = Graph.camera();
-              const target = Graph.controls().target;
-              cam.position.x += x * panSpeed;
-              cam.position.y += y * panSpeed;
-              target.x += x * panSpeed;
-              target.y += y * panSpeed;
-              panLoopId = requestAnimationFrame(panLoop);
-          }
-          panLoop();
+        if (panLoopId) return; // 如果已经在移动，则不做任何事
+        function panLoop() {
+          const cam = Graph.camera();
+          const target = Graph.controls().target;
+          cam.position.x += x * panSpeed;
+          cam.position.y += y * panSpeed;
+          target.x += x * panSpeed;
+          target.y += y * panSpeed;
+          panLoopId = requestAnimationFrame(panLoop);
+        }
+        panLoop();
       }
 
       function stopPanning() {
-          cancelAnimationFrame(panLoopId);
-          panLoopId = null;
+        cancelAnimationFrame(panLoopId);
+        panLoopId = null;
       }
 
       const controls = {
-          'pan-up': () => startPanning(0, panSpeed * 5),
-          'pan-down': () => startPanning(0, -panSpeed * 5),
-          'pan-left': () => startPanning(-panSpeed * 5, 0),
-          'pan-right': () => startPanning(panSpeed * 5, 0)
+        'pan-up': () => startPanning(0, panSpeed * 5),
+        'pan-down': () => startPanning(0, -panSpeed * 5),
+        'pan-left': () => startPanning(-panSpeed * 5, 0),
+        'pan-right': () => startPanning(panSpeed * 5, 0)
       };
 
       Object.keys(controls).forEach(id => {
-          const button = document.getElementById(id);
-          button.addEventListener('mousedown', controls[id]);
-          button.addEventListener('touchstart', (e) => { e.preventDefault(); controls[id](); }, { passive: false });
-          
-          button.addEventListener('mouseup', stopPanning);
-          button.addEventListener('mouseleave', stopPanning);
-          button.addEventListener('touchend', stopPanning);
-      });
-    }
+        const button = document.getElementById(id);
+        button.addEventListener('mousedown', controls[id]);
+        button.addEventListener('touchstart', (e) => { e.preventDefault(); controls[id](); }, { passive: false });
 
-    loadGraphData();
-  </script>
+        button.addEventListener('mouseup', stopPanning);
+        button.addEventListener('mouseleave', stopPanning);
+        button.addEventListener('touchend', stopPanning);
+      });
+    }
+
+    loadGraphData();
+  </script>
 </body>
 </html>
