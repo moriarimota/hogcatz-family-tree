@@ -1,0 +1,1464 @@
+[
+  {
+    "name": "波特（已退役）",
+    "mothers": [
+      {
+        "name": "莉莉（已退役）",
+        "litters": [
+          {
+            "date": "2020/10/4",
+            "children": [
+              {
+                "name": "卢娜（自留）",
+                "gender": "女孩",
+                "link": null,
+                "self_kept": true
+              },
+              {
+                "name": "布丁",
+                "gender": "女孩",
+                "link": null,
+                "self_kept": false
+              },
+              {
+                "name": "可乐",
+                "gender": "男孩",
+                "link": null,
+                "self_kept": false
+              },
+              {
+                "name": "太子",
+                "gender": "男孩",
+                "link": null,
+                "self_kept": false
+              },
+              {
+                "name": "芯芯",
+                "gender": "女孩",
+                "link": null,
+                "self_kept": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "咩咩（已退役）",
+        "litters": [
+          {
+            "date": "2021/3/17",
+            "children": [
+              {
+                "name": "卡戴珊",
+                "gender": "女孩",
+                "link": null,
+                "self_kept": false
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "斯内普（已退役）",
+    "mothers": []
+  },
+  {
+    "name": "小天狼星（已退役）",
+    "mothers": [
+      {
+        "name": "莉莉（已退役）",
+        "litters": [
+          {
+            "date": "2021/5/31",
+            "children": [
+              {
+                "name": "鼻屎妹",
+                "gender": "女孩",
+                "link": null,
+                "self_kept": false
+              }
+            ]
+          },
+          {
+            "date": "2022/5/23 香水",
+            "children": [
+              {
+                "name": "卡朗",
+                "gender": "男孩",
+                "link": "https://mp.weixin.qq.com/s/1XI0VhmLb_dxq_mPRjxTcw",
+                "self_kept": false
+              },
+              {
+                "name": "叁叁（让巴度）",
+                "gender": "男孩",
+                "link": "https://mp.weixin.qq.com/s/gG0TXWiRb__j8b9WpYTDGw",
+                "self_kept": false
+              },
+              {
+                "name": "木兔（祖马龙）",
+                "gender": "男孩",
+                "link": "https://mp.weixin.qq.com/s/n_g6151BD_-P4U-SpXK3gg",
+                "self_kept": false
+              },
+              {
+                "name": "艾斯（芦丹氏）",
+                "gender": "男孩",
+                "link": "https://mp.weixin.qq.com/s/nr5fZ4IXSrCQsuSVD81o7Q",
+                "self_kept": false
+              },
+              {
+                "name": "Yuki（阿蒂仙）",
+                "gender": "女孩",
+                "link": "https://mp.weixin.qq.com/s/Gmsz9i4khYG32fcyUHG6sQ",
+                "self_kept": false
+              },
+              {
+                "name": "拜瑞朵",
+                "gender": "女孩",
+                "link": "https://mp.weixin.qq.com/s/gwL6XOu4Bo5REkHjWKCzPA",
+                "self_kept": false
+              },
+              {
+                "name": "馍馍（馥马尔）",
+                "gender": "男孩",
+                "link": null,
+                "self_kept": false
+              },
+              {
+                "name": "潘海利根",
+                "gender": "女孩",
+                "link": null,
+                "self_kept": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "莫丽（已退役）",
+        "litters": [
+          {
+            "date": "2021/6/17 数字",
+            "children": [
+              {
+                "name": "又又（一心）",
+                "gender": "男孩",
+                "link": null,
+                "self_kept": false
+              },
+              {
+                "name": "拌拌（二水）",
+                "gender": "男孩",
+                "link": null,
+                "self_kept": false
+              },
+              {
+                "name": "栗子（三顷）",
+                "gender": "女孩",
+                "link": null,
+                "self_kept": false
+              },
+              {
+                "name": "底迪（四世）",
+                "gender": "男孩",
+                "link": null,
+                "self_kept": false
+              },
+              {
+                "name": "北北（七星）",
+                "gender": "男孩",
+                "link": null,
+                "self_kept": false
+              },
+              {
+                "name": "豆浆（八音）",
+                "gender": "女孩",
+                "link": null,
+                "self_kept": false
+              },
+              {
+                "name": "黑莓（自留）",
+                "gender": "女孩",
+                "link": null,
+                "self_kept": true
+              },
+              {
+                "name": "米粒",
+                "gender": "男孩",
+                "link": null,
+                "self_kept": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "赫敏（已退役）",
+        "litters": [
+          {
+            "date": "2021/8/7",
+            "children": [
+              {
+                "name": "蛋糕",
+                "gender": "男孩",
+                "link": "https://mp.weixin.qq.com/s/6zjV12ZNGbt0jPzQf0WRMw",
+                "self_kept": false
+              }
+            ]
+          },
+          {
+            "date": "2023/6/2 宫崎骏",
+            "children": [
+              {
+                "name": "波妞",
+                "gender": "女孩",
+                "link": "https://mp.weixin.qq.com/s/8S39NIloBdnImtCjbt4RMw",
+                "self_kept": false
+              },
+              {
+                "name": "小卡比（哈尔）",
+                "gender": "男孩",
+                "link": "https://mp.weixin.qq.com/s/7tzxY6gmaKMt8qyxJYRgig",
+                "self_kept": false
+              },
+              {
+                "name": "千寻",
+                "gender": "女孩",
+                "link": "https://mp.weixin.qq.com/s/j6yMUlnvT3bp_a4XtnwaGQ",
+                "self_kept": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "金妮（已退役）",
+        "litters": [
+          {
+            "date": "2021/12/25 零食",
+            "children": [
+              {
+                "name": "心眼子/格力糕（格力高）",
+                "gender": "男孩",
+                "link": "https://mp.weixin.qq.com/s/k_j7QY9-tFWaBXHN5q5jGA",
+                "self_kept": false
+              },
+              {
+                "name": "芒果（费列罗）",
+                "gender": "男孩",
+                "link": null,
+                "self_kept": false
+              },
+              {
+                "name": "奇多",
+                "gender": "男孩",
+                "link": null,
+                "self_kept": false
+              },
+              {
+                "name": "德芙（自留）",
+                "gender": "女孩",
+                "link": null,
+                "self_kept": true
+              }
+            ]
+          },
+          {
+            "date": "2022/11/2 作曲家",
+            "children": [
+              {
+                "name": "Fred（格里格）",
+                "gender": "男孩",
+                "link": "https://mp.weixin.qq.com/s/CXpVif8qPpQGBsLapSyCFA",
+                "self_kept": false
+              },
+              {
+                "name": "KK（巴托克）",
+                "gender": "男孩",
+                "link": "https://mp.weixin.qq.com/s/E70xz3Zc8c9Z0D7eVuE_MQ",
+                "self_kept": false
+              },
+              {
+                "name": "克拉拉",
+                "gender": "女孩",
+                "link": "https://mp.weixin.qq.com/s/7kHL8yrmbP4FEWEw60GBsA",
+                "self_kept": false
+              },
+              {
+                "name": "蓝宝（埃尔加）",
+                "gender": "男孩",
+                "link": "https://mp.weixin.qq.com/s/XfiAHeKjIQejhwsRT7waqg",
+                "self_kept": false
+              },
+              {
+                "name": "范妮",
+                "gender": "女孩",
+                "link": "https://mp.weixin.qq.com/s/NgeWifPI7JHEx0NGeKo4_A",
+                "self_kept": false
+              },
+              {
+                "name": "纽特（拉威尔）",
+                "gender": "男孩",
+                "link": null,
+                "self_kept": false
+              },
+              {
+                "name": "莉塔（夏米娜德）",
+                "gender": "女孩",
+                "link": null,
+                "self_kept": false
+              }
+            ]
+          },
+          {
+            "date": "2023/10/2 作家",
+            "children": [
+              {
+                "name": "席琳（波伏娃）",
+                "gender": "女孩",
+                "link": "https://mp.weixin.qq.com/s/c3mnL9DFpV44N6C3uErsfQ",
+                "self_kept": false
+              },
+              {
+                "name": "黑塞",
+                "gender": "男孩",
+                "link": "https://mp.weixin.qq.com/s/2v50kJZeko81t2goZietdw",
+                "self_kept": false
+              },
+              {
+                "name": "毛毛（伍尔芙）",
+                "gender": "女孩",
+                "link": "https://mp.weixin.qq.com/s/QK8EP5hIqtoa-wdn8XFLzA",
+                "self_kept": false
+              },
+              {
+                "name": "雪饼（柯莱特）",
+                "gender": "女孩",
+                "link": "https://mp.weixin.qq.com/s/as-YiXH-zLicMZdtucfU-w",
+                "self_kept": false
+              },
+              {
+                "name": "Miumiu（加缪）",
+                "gender": "男孩",
+                "link": "https://mp.weixin.qq.com/s/8q61h_24YpTQYcwm_MdoAw",
+                "self_kept": false
+              },
+              {
+                "name": "Milo（昆德拉）",
+                "gender": "男孩",
+                "link": "https://mp.weixin.qq.com/s/jHLTR2XLFSvsrjZLtWqVgg",
+                "self_kept": false
+              },
+              {
+                "name": "福克纳",
+                "gender": "男孩",
+                "link": null,
+                "self_kept": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "咩咩（已退役）",
+        "litters": [
+          {
+            "date": "2022/3/1",
+            "children": [
+              {
+                "name": "日和（依云）",
+                "gender": "女孩",
+                "link": "https://mp.weixin.qq.com/s/JYdxruvAwRy6xa1H_QHDuw",
+                "self_kept": false
+              }
+            ]
+          },
+          {
+            "date": "2023/1/2 少女漫",
+            "children": [
+              {
+                "name": "六一（马村）",
+                "gender": "男孩",
+                "link": "https://mp.weixin.qq.com/s/d-ILPJLVFKqI8gvKpMU5cQ",
+                "self_kept": false
+              },
+              {
+                "name": "爽子",
+                "gender": "男孩",
+                "link": "https://mp.weixin.qq.com/s/Wp-8_Xy-xMmFJNXDFUizfw",
+                "self_kept": false
+              },
+              {
+                "name": "dimoo（狮子尾）",
+                "gender": "男孩",
+                "link": "https://mp.weixin.qq.com/s/RExM4JTOqAL9nfn1Gni3Ow",
+                "self_kept": false
+              },
+              {
+                "name": "翔太",
+                "gender": "男孩",
+                "link": null,
+                "self_kept": false
+              },
+              {
+                "name": "如意（啾啾）",
+                "gender": "女孩",
+                "link": null,
+                "self_kept": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "卢娜",
+        "litters": [
+          {
+            "date": "2022/4/28 糖果",
+            "children": [
+              {
+                "name": "饼饼（春日井）",
+                "gender": "男孩",
+                "link": "https://mp.weixin.qq.com/s/AqJK82Xjz0YsnjNLu-yP2w",
+                "self_kept": false
+              },
+              {
+                "name": "月月（理本）",
+                "gender": "男孩",
+                "link": "https://mp.weixin.qq.com/s/w28OLo2gFhrCRwOwx7klpg",
+                "self_kept": false
+              },
+              {
+                "name": "没头脑（不二）",
+                "gender": "男孩",
+                "link": "https://mp.weixin.qq.com/s/jHAId3mp1s3ucLGfWwwQpA",
+                "self_kept": false
+              },
+              {
+                "name": "桶桶（悠哈）",
+                "gender": "男孩",
+                "link": "https://mp.weixin.qq.com/s/Xf1qnSz8eUfj2Iy90D9kKw",
+                "self_kept": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "潘西（已退役）",
+        "litters": [
+          {
+            "date": "2022/5/8 糖果2.0",
+            "children": [
+              {
+                "name": "泡泡（珍宝珠）",
+                "gender": "女孩",
+                "link": "https://mp.weixin.qq.com/s/MlbBxVbocnYsJuITeSPhOA",
+                "self_kept": false
+              },
+              {
+                "name": "哈瑞宝",
+                "gender": "男孩",
+                "link": "https://mp.weixin.qq.com/s/xKskK24OdS28g5oUCw9xvg",
+                "self_kept": false
+              },
+              {
+                "name": "瑞士莲",
+                "gender": "女孩",
+                "link": "https://mp.weixin.qq.com/s/-zzfwSnPkTGaKWJw0q5G6Q",
+                "self_kept": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "知世",
+        "litters": [
+          {
+            "date": "2024/1/17 甜点",
+            "children": [
+              {
+                "name": "卤肉饭（拿破仑）",
+                "gender": "男孩",
+                "link": "https://mp.weixin.qq.com/s/6tsbDLtucXDJ21NkPoTqPA",
+                "self_kept": false
+              },
+              {
+                "name": "岁岁（费南雪）",
+                "gender": "女孩",
+                "link": "https://mp.weixin.qq.com/s/RIXjI-nl4HACKPm7eIdCOg",
+                "self_kept": false
+              },
+              {
+                "name": "铒居（蒙布朗）",
+                "gender": "男孩",
+                "link": "https://mp.weixin.qq.com/s/kzz4c-XV5YvVB61eZAz_Mg",
+                "self_kept": false
+              },
+              {
+                "name": "卡隆（马卡龙）",
+                "gender": "男孩",
+                "link": "https://mp.weixin.qq.com/s/V4EnIl_JzRvXpIDtG3Y8eA",
+                "self_kept": false
+              },
+              {
+                "name": "玛德琳",
+                "gender": "男孩",
+                "link": "https://mp.weixin.qq.com/s/PeVCHUwlO4HdI9z1bxzZ4w",
+                "self_kept": false
+              },
+              {
+                "name": "司康",
+                "gender": "男孩",
+                "link": "https://mp.weixin.qq.com/s/iSj0GlVNT09k7tQrUkH1Xg",
+                "self_kept": false
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "喜茶",
+    "mothers": [
+      {
+        "name": "赫敏（已退役）",
+        "litters": [
+          {
+            "date": "2022/9/27 魔法少女樱",
+            "children": [
+              {
+                "name": "雪兔",
+                "gender": "男孩",
+                "link": "https://mp.weixin.qq.com/s/9LjqVUx_pxEG_da1ON-zTA",
+                "self_kept": false
+              },
+              {
+                "name": "桃矢",
+                "gender": "男孩",
+                "link": "https://mp.weixin.qq.com/s/o7MI-pXAKnUW3CxbWsY83Q",
+                "self_kept": false
+              },
+              {
+                "name": "知世（自留）",
+                "gender": "女孩",
+                "link": null,
+                "self_kept": true
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "胐胐（已退役）",
+    "mothers": [
+      {
+        "name": "卢娜",
+        "litters": [
+          {
+            "date": "2023/2/7 茶叶",
+            "children": [
+              {
+                "name": "Doki（普洱）",
+                "gender": "男孩",
+                "link": "https://mp.weixin.qq.com/s/7KGdFQiujeEtHtb9Xe-QJA",
+                "self_kept": false
+              },
+              {
+                "name": "Cookie（龙井）",
+                "gender": "男孩",
+                "link": "https://mp.weixin.qq.com/s/X6bXrz0LJwUGitSOA90dwA",
+                "self_kept": false
+              },
+              {
+                "name": "嗲妹（滇红）",
+                "gender": "女孩",
+                "link": "https://mp.weixin.qq.com/s/8qBzszgzUuzhIwK7Gps-sQ",
+                "self_kept": false
+              },
+              {
+                "name": "pepper（大吉岭）",
+                "gender": "女孩",
+                "link": "https://mp.weixin.qq.com/s/RJpbx5shZtqilfxaV-ceAA",
+                "self_kept": false
+              },
+              {
+                "name": "麦芽糖（茉莉）",
+                "gender": "女孩",
+                "link": "https://mp.weixin.qq.com/s/6Bf9kQztAHcZErvCq0zWHg",
+                "self_kept": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "德芙",
+        "litters": [
+          {
+            "date": "2024/8/18 葡萄酒3.0",
+            "children": [
+              {
+                "name": "波波（白波特）",
+                "gender": "男孩",
+                "link": "https://mp.weixin.qq.com/s/YH5jm7CtIsbLrKVOLE6JGg",
+                "self_kept": false
+              },
+              {
+                "name": "娜娜（佳美娜）",
+                "gender": "女孩",
+                "link": "https://mp.weixin.qq.com/s/rZ69MCinoA3YLrlAmwV8eA",
+                "self_kept": false
+              },
+              {
+                "name": "哆米（长相思）",
+                "gender": "男孩",
+                "link": "https://mp.weixin.qq.com/s/uteJtuG9vqqCA9-WjMyfzg",
+                "self_kept": false
+              },
+              {
+                "name": "cc（西拉子）",
+                "gender": "女孩",
+                "link": "https://mp.weixin.qq.com/s/KbQ31mbqygmmnKqOBtXK1Q",
+                "self_kept": false
+              },
+              {
+                "name": "崽崽（维欧尼）",
+                "gender": "男孩",
+                "link": "https://mp.weixin.qq.com/s/ev4MY-bztgqGp-c8Adek0A",
+                "self_kept": false
+              },
+              {
+                "name": "珠珠（赤霞珠）",
+                "gender": "女孩",
+                "link": "https://mp.weixin.qq.com/s/0FEVgJ5zK3ksmk3z24_4sA",
+                "self_kept": false
+              },
+              {
+                "name": "mayuyu（仙粉黛）",
+                "gender": "女孩",
+                "link": "https://mp.weixin.qq.com/s/Y-YJ9PpFufvrItoK8RbHTQ",
+                "self_kept": false
+              },
+              {
+                "name": "雪兔（丹魄）",
+                "gender": "男孩",
+                "link": "https://mp.weixin.qq.com/s/hIkaNKG95rMtU9NLqEqVaA",
+                "self_kept": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "蓝莓",
+        "litters": [
+          {
+            "date": "2025/3/11 双子星",
+            "children": [
+              {
+                "name": "希尔杜",
+                "gender": "男孩",
+                "link": null,
+                "self_kept": false
+              },
+              {
+                "name": "布莱德",
+                "gender": "男孩",
+                "link": null,
+                "self_kept": false
+              },
+              {
+                "name": "法音",
+                "gender": "女孩",
+                "link": null,
+                "self_kept": false
+              },
+              {
+                "name": "莲音",
+                "gender": "女孩",
+                "link": null,
+                "self_kept": false
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "狗蛋",
+    "mothers": [
+      {
+        "name": "德芙",
+        "litters": [
+          {
+            "date": "2023/2/25 葡萄酒1.0",
+            "children": [
+              {
+                "name": "感叹号",
+                "gender": "女孩",
+                "link": "https://mp.weixin.qq.com/s/oD_YciCy2LGd2BpEun3_ag",
+                "self_kept": false
+              },
+              {
+                "name": "曼特宁",
+                "gender": "男孩",
+                "link": "https://mp.weixin.qq.com/s/KjlKdK9Lf4VBlKTxO9BkWw",
+                "self_kept": false
+              },
+              {
+                "name": "泡芙（波旁）",
+                "gender": "男孩",
+                "link": "https://mp.weixin.qq.com/s/W1wd1hIOrkQ-CXOO7mSRAw",
+                "self_kept": false
+              },
+              {
+                "name": "蕙兰",
+                "gender": "女孩",
+                "link": "https://mp.weixin.qq.com/s/9oSaELDWxmOl1Usli2q6rg",
+                "self_kept": false
+              },
+              {
+                "name": "瑰夏",
+                "gender": "女孩",
+                "link": "https://mp.weixin.qq.com/s/6ohK9RHQI5Rf263vswsivg",
+                "self_kept": false
+              },
+              {
+                "name": "七月（卡杜拉）",
+                "gender": "女孩",
+                "link": "https://mp.weixin.qq.com/s/f_bBoIF5W5y2S0RCiC3Kjw",
+                "self_kept": false
+              },
+              {
+                "name": "可露丽（耶加雪菲）",
+                "gender": "女孩",
+                "link": null,
+                "self_kept": false
+              },
+              {
+                "name": "铁比卡（自留）",
+                "gender": "男孩",
+                "link": null,
+                "self_kept": true
+              }
+            ]
+          },
+          {
+            "date": "2023/12/30 葡萄酒2.0",
+            "children": [
+              {
+                "name": "uu（霞多丽）",
+                "gender": "女孩",
+                "link": "https://mp.weixin.qq.com/s/j59d6OpL8hfxVR64zGKehA",
+                "self_kept": false
+              },
+              {
+                "name": "朝朝（灰皮诺）",
+                "gender": "男孩",
+                "link": "https://mp.weixin.qq.com/s/KVNI2GkY45w5pVw-oK-sHg",
+                "self_kept": false
+              },
+              {
+                "name": "歌海娜",
+                "gender": "女孩",
+                "link": "https://mp.weixin.qq.com/s/FXsA-Y89-suWc_hq8XxjIQ",
+                "self_kept": false
+              },
+              {
+                "name": "雷司令",
+                "gender": "男孩",
+                "link": "https://mp.weixin.qq.com/s/uP2CPRfXG1BdLtOEXa1aFg",
+                "self_kept": false
+              },
+              {
+                "name": "白诗南",
+                "gender": "女孩",
+                "link": "https://mp.weixin.qq.com/s/kI8T75ivRQhSWi79TKqjxg",
+                "self_kept": false
+              }
+            ]
+          },
+          {
+            "date": "2025/5/9 葡萄酒4.0",
+            "children": [
+              {
+                "name": "黑皮诺",
+                "gender": "男孩",
+                "link": null,
+                "self_kept": false
+              },
+              {
+                "name": "苏玳",
+                "gender": "女孩",
+                "link": null,
+                "self_kept": false
+              },
+              {
+                "name": "梅洛",
+                "gender": "男孩",
+                "link": null,
+                "self_kept": false
+              },
+              {
+                "name": "桑娇维塞",
+                "gender": "女孩",
+                "link": null,
+                "self_kept": false
+              },
+              {
+                "name": "马尔贝克",
+                "gender": "男孩",
+                "link": null,
+                "self_kept": false
+              },
+              {
+                "name": "品丽珠",
+                "gender": "女孩",
+                "link": null,
+                "self_kept": false
+              },
+              {
+                "name": "莫斯卡托",
+                "gender": "男孩",
+                "link": null,
+                "self_kept": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "莉塔",
+        "litters": [
+          {
+            "date": "2024/1/15 菌菇",
+            "children": [
+              {
+                "name": "利威尔（茶树菇）",
+                "gender": "男孩",
+                "link": "https://mp.weixin.qq.com/s/7hUnNmlxiCowmEswM8Uj2w",
+                "self_kept": false
+              },
+              {
+                "name": "乐乐（牛肝菌）",
+                "gender": "男孩",
+                "link": "https://mp.weixin.qq.com/s/eJYnUO3q5F5fWsPP-mKa8A",
+                "self_kept": false
+              },
+              {
+                "name": "福福（姬松茸）",
+                "gender": "女孩",
+                "link": "https://mp.weixin.qq.com/s/Lai9gUPqEqy8gZTBxl4MgQ",
+                "self_kept": false
+              },
+              {
+                "name": "花花（虫草花）",
+                "gender": "女孩",
+                "link": "https://mp.weixin.qq.com/s/3o7cNDZGK9xPFEaShLsHIQ",
+                "self_kept": false
+              },
+              {
+                "name": "Gimi（黑松露）",
+                "gender": "男孩",
+                "link": "https://mp.weixin.qq.com/s/2bw1y7tcDkN-yIKBcIrt-A",
+                "self_kept": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "黑莓",
+        "litters": [
+          {
+            "date": "2024/12/10 四大学院",
+            "children": [
+              {
+                "name": "Ricky（戈德里克）",
+                "gender": "男孩",
+                "link": "https://mp.weixin.qq.com/s/Ie9fYxgV6cuQE5Jf27VqCw",
+                "self_kept": false
+              },
+              {
+                "name": "汪汪（萨拉查）",
+                "gender": "男孩",
+                "link": "https://mp.weixin.qq.com/s/VkEBhEGdopcTLVVmnwRB5g",
+                "self_kept": false
+              },
+              {
+                "name": "罗伊纳",
+                "gender": "女孩",
+                "link": "https://mp.weixin.qq.com/s/9SzjNvG_Z7CDi5LAaAUcSQ",
+                "self_kept": false
+              },
+              {
+                "name": "赫尔加（自留）",
+                "gender": "女孩",
+                "link": null,
+                "self_kept": true
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "champion",
+    "mothers": [
+      {
+        "name": "莉莉（已退役）",
+        "litters": [
+          {
+            "date": "2023/6/10 酒精1.0",
+            "children": [
+              {
+                "name": "Umi（伏特加）",
+                "gender": "男孩",
+                "link": "https://mp.weixin.qq.com/s/qwfefqc_1MorWW5jb0T5Rg",
+                "self_kept": false
+              },
+              {
+                "name": "养乐多（白兰地）",
+                "gender": "男孩",
+                "link": "https://mp.weixin.qq.com/s/nBJb36p-L1MOg6DuZzMKMQ",
+                "self_kept": false
+              },
+              {
+                "name": "朗姆",
+                "gender": "男孩",
+                "link": "https://mp.weixin.qq.com/s/QIFb3pLnyEEu1608y0QpZg",
+                "self_kept": false
+              },
+              {
+                "name": "邦邦（力娇）",
+                "gender": "女孩",
+                "link": "https://mp.weixin.qq.com/s/iI6rDUCObpKtswPdMZ1q9A",
+                "self_kept": false
+              },
+              {
+                "name": "百利甜",
+                "gender": "女孩",
+                "link": "https://mp.weixin.qq.com/s/mp4ckqr6WQnosNH2CANKyw",
+                "self_kept": false
+              },
+              {
+                "name": "马提尼",
+                "gender": "男孩",
+                "link": "https://mp.weixin.qq.com/s/iN3zVfml12qKIwV7v0PKRw",
+                "self_kept": false
+              },
+              {
+                "name": "龙宝（龙舌兰）",
+                "gender": "男孩",
+                "link": "https://mp.weixin.qq.com/s/lQjI8CgaY9oQQcOcQYzOOw",
+                "self_kept": false
+              },
+              {
+                "name": "雪莉",
+                "gender": "女孩",
+                "link": null,
+                "self_kept": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "金妮（已退役）",
+        "litters": [
+          {
+            "date": "2024/11/15 魔法植物",
+            "children": [
+              {
+                "name": "跳跳根",
+                "gender": "女孩",
+                "link": "https://mp.weixin.qq.com/s/lLaHeDelQ9L3FxqCuVPOBA",
+                "self_kept": false
+              },
+              {
+                "name": "姬粒粒（打人柳）",
+                "gender": "男孩",
+                "link": "https://mp.weixin.qq.com/s/7cnI97n9FLl3Tbif5WVRsw",
+                "self_kept": false
+              },
+              {
+                "name": "草莓（膨豆荚）",
+                "gender": "女孩",
+                "link": "https://mp.weixin.qq.com/s/cdRFzk9hl3JJvP4bA7jqJQ",
+                "self_kept": false
+              },
+              {
+                "name": "糖豆（瞌睡豆）",
+                "gender": "女孩",
+                "link": "https://mp.weixin.qq.com/s/81rcNRSAhTdQgpylvzY_Rw",
+                "self_kept": false
+              },
+              {
+                "name": "小野（飞艇李）",
+                "gender": "男孩",
+                "link": "https://mp.weixin.qq.com/s/jr1Yfa5wOrlWaLNyOQjrmQ",
+                "self_kept": false
+              },
+              {
+                "name": "米布米宝",
+                "gender": "女孩",
+                "link": "https://mp.weixin.qq.com/s/qpybqnsmluvRtmRYsYDLzA",
+                "self_kept": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "莉塔",
+        "litters": []
+      }
+    ]
+  },
+  {
+    "name": "纽特",
+    "mothers": [
+      {
+        "name": "卢娜",
+        "litters": [
+          {
+            "date": "2023/11/26 “难吃”",
+            "children": [
+              {
+                "name": "暖暖（秋葵）",
+                "gender": "女孩",
+                "link": "https://mp.weixin.qq.com/s/tzCA6o2c5Hihzm4ofLj6gQ",
+                "self_kept": false
+              },
+              {
+                "name": "Zora（纳豆）",
+                "gender": "女孩",
+                "link": "https://mp.weixin.qq.com/s/Go2qPmy28AwFk_irefnKkg",
+                "self_kept": false
+              },
+              {
+                "name": "米法（香菜）",
+                "gender": "女孩",
+                "link": "https://mp.weixin.qq.com/s/2OhdYuo2vDgeGX63Ezhp5w",
+                "self_kept": false
+              },
+              {
+                "name": "芥末",
+                "gender": "女孩",
+                "link": "https://mp.weixin.qq.com/s/z8Bj3sPZGB_tjA_DwrjTmQ",
+                "self_kept": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "赫敏（已退役）",
+        "litters": [
+          {
+            "date": "2024/4/30",
+            "children": [
+              {
+                "name": "Yomi（小樱）",
+                "gender": "女孩",
+                "link": null,
+                "self_kept": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "蓝莓",
+        "litters": [
+          {
+            "date": "2024/5/11 帕蒂尔姐妹",
+            "children": [
+              {
+                "name": "铛铛（帕瓦蒂）",
+                "gender": "女孩",
+                "link": "https://mp.weixin.qq.com/s/4iuobazKpoIoQBcn54pL-g",
+                "self_kept": false
+              },
+              {
+                "name": "黑松露（帕德玛）",
+                "gender": "女孩",
+                "link": "https://mp.weixin.qq.com/s/aJDGBZ9wrkUUdf4_DkKZeA",
+                "self_kept": false
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "瑟兰迪尔",
+    "mothers": [
+      {
+        "name": "莉莉（已退役）",
+        "litters": [
+          {
+            "date": "2024/6/6 酒精2.0",
+            "children": [
+              {
+                "name": "泡泡（玛格丽特）",
+                "gender": "女孩",
+                "link": "https://mp.weixin.qq.com/s/CL_5Iii6AQHAz1NTCO5d8Q",
+                "self_kept": false
+              },
+              {
+                "name": "小宝（金菲士）",
+                "gender": "男孩",
+                "link": "https://mp.weixin.qq.com/s/kbNMGdGtdguVDoJZogKtrw",
+                "self_kept": false
+              },
+              {
+                "name": "呆呆（莫吉托）",
+                "gender": "男孩",
+                "link": "https://mp.weixin.qq.com/s/Q_-nIF4F5_tjX3kDD2UWIQ",
+                "self_kept": false
+              },
+              {
+                "name": "爆爆（宾治）",
+                "gender": "男孩",
+                "link": "https://mp.weixin.qq.com/s/s1uRIXCo-WYKWiwRFVX-qg",
+                "self_kept": false
+              },
+              {
+                "name": "维斯帕",
+                "gender": "女孩",
+                "link": "https://mp.weixin.qq.com/s/SJERJU2x7C79jQs_ET2OTQ",
+                "self_kept": false
+              },
+              {
+                "name": "小胖（金汤力）（自留）",
+                "gender": "女孩",
+                "link": null,
+                "self_kept": true
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "哭包",
+    "mothers": [
+      {
+        "name": "卢娜",
+        "litters": [
+          {
+            "date": "2024/9/12 好吃",
+            "children": [
+              {
+                "name": "茉莉（钵钵鸡）",
+                "gender": "女孩",
+                "link": "https://mp.weixin.qq.com/s/vqWM2dBk6nnMorKKFwto9A",
+                "self_kept": false
+              },
+              {
+                "name": "汤圆（啫啫煲）",
+                "gender": "女孩",
+                "link": "https://mp.weixin.qq.com/s/tx5JoU9_eGph5mAOwFaGIw",
+                "self_kept": false
+              },
+              {
+                "name": "绫兰（棒棒虾）",
+                "gender": "男孩",
+                "link": "https://mp.weixin.qq.com/s/Q4kyeWSvzp6gWHSxeEOJug",
+                "self_kept": false
+              },
+              {
+                "name": "念念（担担面）",
+                "gender": "女孩",
+                "link": "https://mp.weixin.qq.com/s/56eFcKdRcX-KR_MvbwdkxA",
+                "self_kept": false
+              },
+              {
+                "name": "秋张（片片鸭）自留",
+                "gender": "女孩",
+                "link": null,
+                "self_kept": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "莉塔",
+        "litters": [
+          {
+            "date": "2024/9/26 无毒植物",
+            "children": [
+              {
+                "name": "来财（大岩桐）",
+                "gender": "男孩",
+                "link": "https://mp.weixin.qq.com/s/AlgFbkR-_emkqpFRBLhcjA",
+                "self_kept": false
+              },
+              {
+                "name": "酒酒车（酒瓶兰）",
+                "gender": "女孩",
+                "link": "https://mp.weixin.qq.com/s/BixGeeZyEfwcL8MkykwsPQ",
+                "self_kept": false
+              },
+              {
+                "name": "鹿角蕨",
+                "gender": "男孩",
+                "link": "https://mp.weixin.qq.com/s/1pqYimDNMyViMdLqSvQgLA",
+                "self_kept": false
+              },
+              {
+                "name": "昭昭（姬凤梨）",
+                "gender": "女孩",
+                "link": "https://mp.weixin.qq.com/s/UECBFLGHS4ocPCCg-Ki3gQ",
+                "self_kept": false
+              },
+              {
+                "name": "Heart（福禄考）",
+                "gender": "男孩",
+                "link": "https://mp.weixin.qq.com/s/ulg0FXwoRUwNm9kYV_eshg",
+                "self_kept": false
+              },
+              {
+                "name": "菊菊煲（矢车菊）",
+                "gender": "女孩",
+                "link": "https://mp.weixin.qq.com/s/KoCCCpLboXiZy7p4DYHHmw",
+                "self_kept": false
+              },
+              {
+                "name": "年年（散尾葵）",
+                "gender": "女孩",
+                "link": "https://mp.weixin.qq.com/s/ugRaDpskzBztZbvP7QeTwg",
+                "self_kept": false
+              },
+              {
+                "name": "米莱（小翠云）",
+                "gender": "女孩",
+                "link": "https://mp.weixin.qq.com/s/TRGsBReooOoh1VDMr3ndUQ",
+                "self_kept": false
+              },
+              {
+                "name": "穗穗（千穗谷）",
+                "gender": "女孩",
+                "link": "https://mp.weixin.qq.com/s/DH5f57l_KFVg6SReWsjnGA",
+                "self_kept": false
+              },
+              {
+                "name": "海德薇（婆婆纳）自留",
+                "gender": "女孩",
+                "link": null,
+                "self_kept": true
+              },
+              {
+                "name": "泥泥（金鱼草）",
+                "gender": "女孩",
+                "link": null,
+                "self_kept": false
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "铁比卡",
+    "mothers": [
+      {
+        "name": "如月",
+        "litters": [
+          {
+            "date": "2024/10/4 茶姬",
+            "children": [
+              {
+                "name": "山野",
+                "gender": "男孩",
+                "link": "https://mp.weixin.qq.com/s/EY1V5nHFT1YsbnwPYFtiJg",
+                "self_kept": false
+              },
+              {
+                "name": "木兰",
+                "gender": "女孩",
+                "link": "https://mp.weixin.qq.com/s/2HOQ7Sc2VO9LXdPBiCLzaQ",
+                "self_kept": false
+              },
+              {
+                "name": "迪奥（伯牙）",
+                "gender": "男孩",
+                "link": "https://mp.weixin.qq.com/s/gHSx0DN39ivx7l1ebBGw1A",
+                "self_kept": false
+              },
+              {
+                "name": "花田",
+                "gender": "女孩",
+                "link": "https://mp.weixin.qq.com/s/ynrwNUlNZVQbcQHbHHiG_A",
+                "self_kept": false
+              },
+              {
+                "name": "扶摇",
+                "gender": "女孩",
+                "link": null,
+                "self_kept": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "知世",
+        "litters": [
+          {
+            "date": "2025/1/28",
+            "children": [
+              {
+                "name": "除夕",
+                "gender": "女孩",
+                "link": "https://mp.weixin.qq.com/s/GLeCo3SYWOm2UiQkmbx3Ig",
+                "self_kept": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "米勒娃",
+        "litters": [
+          {
+            "date": "2025/2/9",
+            "children": [
+              {
+                "name": "派派",
+                "gender": "男孩",
+                "link": null,
+                "self_kept": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "赫敏（已退役）",
+        "litters": [
+          {
+            "date": "2025/3/12",
+            "children": [
+              {
+                "name": "小狼",
+                "gender": "男孩",
+                "link": null,
+                "self_kept": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "卢娜",
+        "litters": [
+          {
+            "date": "2025/6/12 好吃",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "巴克比克",
+    "mothers": [
+      {
+        "name": "克鲁克山",
+        "litters": [
+          {
+            "date": "2025/3/19 魔法宠物",
+            "children": [
+              {
+                "name": "阿囡",
+                "gender": "女孩",
+                "link": null,
+                "self_kept": false
+              },
+              {
+                "name": "皮科特",
+                "gender": "男孩",
+                "link": null,
+                "self_kept": false
+              },
+              {
+                "name": "朱薇琼",
+                "gender": "女孩",
+                "link": null,
+                "self_kept": false
+              },
+              {
+                "name": "诺伯特",
+                "gender": "男孩",
+                "link": null,
+                "self_kept": false
+              },
+              {
+                "name": "牙牙",
+                "gender": "女孩",
+                "link": null,
+                "self_kept": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "如月",
+        "litters": []
+      }
+    ]
+  },
+  {
+    "name": "雷古勒斯",
+    "mothers": [
+      {
+        "name": "海德薇",
+        "litters": []
+      },
+      {
+        "name": "秋张",
+        "litters": []
+      },
+      {
+        "name": "金汤力",
+        "litters": []
+      },
+      {
+        "name": "黑莓",
+        "litters": []
+      },
+      {
+        "name": "知世",
+        "litters": []
+      },
+      {
+        "name": "蓝莓",
+        "litters": []
+      },
+      {
+        "name": "德芙",
+        "litters": []
+      },
+      {
+        "name": "如月",
+        "litters": []
+      }
+    ]
+  }
+]

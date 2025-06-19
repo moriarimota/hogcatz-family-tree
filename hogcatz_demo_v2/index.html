@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>Hogcatz Sirius Family Tree (高级控制)</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      font-family: 'Inter', sans-serif;
+    }
+    #3d-graph {
+      width: 100vw;
+      height: 100vh;
+      background-color: #1a1a2e;
+      cursor: grab; /* 让鼠标看起来可以抓取 */
+    }
+    #3d-graph:active {
+      cursor: grabbing;
+    }
+  </style>
+    <script src="./libs/d3.min.js"></script>
+  <script src="./libs/three.min.js"></script>
+  <script src="./libs/three-spritetext.min.js"></script>
+  <script src="./libs/3d-force-graph.min.js"></script>
+</head>
+<body>
+  <div id="3d-graph"></div>
+
+  <script>
+    // 为了方便使用 three.js 的内置常量，我们先把它从 window 中解构出来
+    const { THREE } = window;
+
+    const photoBasePath = './photos/';
+    const IDcardBasePath = './IDcard/';
+
+    async function loadGraphData() {
+      const response = await fetch('family_md.json');
+      const graphData = await response.json();
+
+      // --- 关键改动 2：让布局更 3D ---
+      // 在加载数据后，给每个节点一个随机的初始 Z 坐标
+      // 这会给力导向布局一个“3D的起点”，防止它们都挤在一个平面上
+      graphData.nodes.forEach(node => {
+        node.fx = node.x; // 可以固定节点的初始X,Y位置，如果你的JSON里有的话
+        node.fy = node.y;
+        node.fz = (Math.random() - 0.5) * 650; // 随机分布在 -75 到 +75 的 Z 轴空间
+      });
+
+
+      // ... (此处省略之前的数据处理代码，它们保持不变)
+      graphData.nodes.forEach(node => {
+        node.isParent = node.type === 'cat' && graphData.links.some(link => link.source === node.id && link.type === 'mate');
+      });
+      graphData.links.forEach(link => {
+        if (link.type === 'mate') {
+          const sourceNode = graphData.nodes.find(n => n.id === link.source);
+          if (sourceNode && sourceNode.gender) {
+            link.parent_gender = sourceNode.gender;
+          }
+        }
+      });
+
+      // 渲染图
+      const Graph = ForceGraph3D()(document.getElementById('3d-graph'))
+        .graphData(graphData)
+        // ... (此处省略之前的外观配置代码，它们保持不变)
+        .linkColor(link => {let color; if (link.type === 'mate') {color = link.parent_gender === 'male' ? 0x87CEEB : 0xFFB6C1;} else if (link.type === 'child') {color = link.child_line_color;} else {color = 0xcccccc;} return '#' + color.toString(16).padStart(6, '0');})
+        .linkWidth(link => link.thickness || 1)
+        .nodeLabel(node => {let imagePath = node.IDcardPhoto ? IDcardBasePath + node.IDcardPhoto : node.photo ? photoBasePath + node.photo : 'https://placehold.co/60x60/808080/FFFFFF?text=No+Photo'; const style = node.IDcardPhoto ? 'max-width:200px; border-radius:8px;' : 'width:60px; height:60px; border-radius:50%; object-fit:cover;'; const img = `<img src="${imagePath}" style="${style}" /><br>`; const name = node.isParent ? `<b>${node.name}</b>` : node.name; return `<div style="text-align:center; color:white; background:rgba(0,0,0,0.6); padding:6px; border-radius:6px;">${img}${name}</div>`;})
+        .onNodeClick(node => {const distance = 120; const nodePosition = { x: node.x, y: node.y, z: node.z }; const cameraTargetPosition = { x: nodePosition.x, y: nodePosition.y, z: nodePosition.z + distance }; Graph.cameraPosition(cameraTargetPosition, nodePosition, 1000); if (node.link) { window.open(node.link, '_blank'); }})
+        .nodeAutoColorBy('type')
+        .nodeThreeObject(node => { const group = new THREE.Group(); if (node.type === 'cat') {const nodeSize = node.isParent ? 25 : 10; let defaultColor = node.gender === 'male' ? 0x87CEEB : node.gender === 'female' ? 0xFFB6C1 : 0xffffff; const sprite = new THREE.Sprite(new THREE.SpriteMaterial({ color: 0xffffff })); const canvas = document.createElement('canvas'); canvas.width = 128; canvas.height = 128; const ctx = canvas.getContext('2d'); ctx.beginPath(); ctx.arc(64, 64, 60, 0, 2 * Math.PI); ctx.closePath(); ctx.clip(); const img = new Image(); img.src = photoBasePath + node.photo; img.onload = () => { ctx.drawImage(img, 0, 0, 128, 128); sprite.material.map = new THREE.CanvasTexture(canvas); sprite.material.needsUpdate = true; }; img.onerror = () => { ctx.fillStyle = '#' + defaultColor.toString(16).padStart(6, '0'); ctx.fill(); sprite.material.map = new THREE.CanvasTexture(canvas); sprite.material.needsUpdate = true; }; sprite.scale.set(nodeSize * 2, nodeSize * 2, 1); group.add(sprite); const text = new SpriteText(node.name); text.textHeight = node.isParent ? 10 : 8; text.color = node.gender === 'male' ? '#87CEEB' : node.gender === 'female' ? '#FFB6C1' : node.link ? '#b0e0e6' : 'white'; text.position.y = -(nodeSize + 15); group.add(text); return group;} else if (node.type === 'litter') {const ring = new THREE.Mesh( new THREE.RingGeometry(8, 12, 32), new THREE.MeshLambertMaterial({ color: node.color || 0xffff00, transparent: true, opacity: 0.6, side: THREE.DoubleSide }) ); ring.rotation.x = Math.PI / 2; const label = new SpriteText(node.name); label.textHeight = 7; label.color = 'yellow'; ring.add(label); return ring;} })
+        .d3Force('charge', d3.forceManyBody().strength(-300))
+        .d3Force('link', d3.forceLink().id(n => n.id).distance(50))
+        // --- 关键改动 2：移除或减弱中心力 ---
+        // 将中心力设为 null，允许节点在Z轴上自由分布
+        .d3Force('center', null); 
+
+      // --- 关键改动 1：设置平移功能 ---
+      // 在Graph初始化之后，获取其控制器
+      const controls = Graph.controls();
+      // 设置鼠标右键（THREE.MOUSE.RIGHT）的行为为平移（PAN）
+      // 左键（THREE.MOUSE.LEFT）保持默认的旋转（ROTATE）
+      // 中键（滚轮按下）可以设为缩放（DOLLY）
+      controls.mouseButtons = {
+        LEFT: THREE.MOUSE.ROTATE,
+        MIDDLE: THREE.MOUSE.DOLLY,
+        RIGHT: THREE.MOUSE.PAN
+      };
+    }
+
+    loadGraphData();
+  </script>
+</body>
+</html>
