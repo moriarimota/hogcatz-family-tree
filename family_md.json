@@ -361,10 +361,10 @@
             "type": "litter"
         },
         {
-            "id": "心眼子/格力糕(格力高)",
-            "name": "心眼子/格力糕(格力高)",
-            "photo": "心眼子/格力糕(格力高).jpg",
-            "IDcardPhoto": "心眼子/格力糕(格力高).jpg",
+            "id": "心眼子_格力糕(格力高)",
+            "name": "心眼子_格力糕(格力高)",
+            "photo": "心眼子_格力糕(格力高).jpg",
+            "IDcardPhoto": "心眼子_格力糕(格力高).jpg",
             "link": "https://mp.weixin.qq.com/s/k_j7QY9-tFWaBXHN5q5jGA",
             "type": "cat",
             "gender": "male"
@@ -2287,7 +2287,7 @@
         },
         {
             "source": "窝_9",
-            "target": "心眼子/格力糕(格力高)",
+            "target": "心眼子_格力糕(格力高)",
             "type": "child",
             "child_line_color": 11393254,
             "thickness": 0.8
