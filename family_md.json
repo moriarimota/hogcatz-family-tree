@@ -1942,6 +1942,62 @@
             "gender": "female"
         },
         {
+            "id": "窝_40",
+            "name": "金子涵的将来时",
+            "type": "litter"
+        },
+        {
+            "id": "小小胖",
+            "name": "小小胖",
+            "photo": "小小胖.jpg",
+            "IDcardPhoto": "小小胖.jpg",
+            "link": "",
+            "type": "cat",
+            "gender": "female"
+        },
+        {
+            "id": "窝_41",
+            "name": "叮当咪的将来时",
+            "type": "litter"
+        },
+        {
+            "id": "小小叮当咪",
+            "name": "小小叮当咪",
+            "photo": "小小叮当咪.jpg",
+            "IDcardPhoto": "小小叮当咪.jpg",
+            "link": "",
+            "type": "cat",
+            "gender": "female"
+        },
+        {
+            "id": "窝_42",
+            "name": "鸭总的将来时",
+            "type": "litter"
+        },
+        {
+            "id": "小小鸭",
+            "name": "小小鸭",
+            "photo": "小小鸭.jpg",
+            "IDcardPhoto": "小小鸭.jpg",
+            "link": "",
+            "type": "cat",
+            "gender": "female"
+        },
+        {
+            "id": "窝_43",
+            "name": "姥子涵的将来时",
+            "type": "litter"
+        },
+        {
+            "id": "小小黑",
+            "name": "小小黑",
+            "photo": "小小黑.jpg",
+            "IDcardPhoto": "小小黑.jpg",
+            "link": "",
+            "type": "cat",
+            "gender": "female"
+        },
+        {
             "id": "雷古勒斯",
             "name": "雷古勒斯",
             "photo": "雷古勒斯.jpg",
@@ -3705,6 +3761,90 @@
         {
             "source": "窝_39",
             "target": "诺伯特",
+            "type": "child",
+            "child_line_color": 11393254,
+            "thickness": 0.8
+        },
+        {
+            "source": "雷古勒斯",
+            "target": "窝_40",
+            "type": "mate",
+            "mate_line_color": 16761035,
+            "thickness": 3
+        },
+        {
+            "source": "小胖(金汤力)",
+            "target": "窝_40",
+            "type": "mate",
+            "mate_line_color": 16761035,
+            "thickness": 3
+        },
+        {
+            "source": "窝_40",
+            "target": "小小胖",
+            "type": "child",
+            "child_line_color": 11393254,
+            "thickness": 0.8
+        },
+        {
+            "source": "雷古勒斯",
+            "target": "窝_41",
+            "type": "mate",
+            "mate_line_color": 16761035,
+            "thickness": 3
+        },
+        {
+            "source": "海德薇(婆婆纳)",
+            "target": "窝_41",
+            "type": "mate",
+            "mate_line_color": 16761035,
+            "thickness": 3
+        },
+        {
+            "source": "窝_41",
+            "target": "小小叮当咪",
+            "type": "child",
+            "child_line_color": 11393254,
+            "thickness": 0.8
+        },
+        {
+            "source": "雷古勒斯",
+            "target": "窝_42",
+            "type": "mate",
+            "mate_line_color": 16761035,
+            "thickness": 3
+        },
+        {
+            "source": "秋张(片片鸭)",
+            "target": "窝_42",
+            "type": "mate",
+            "mate_line_color": 16761035,
+            "thickness": 3
+        },
+        {
+            "source": "窝_42",
+            "target": "小小鸭",
+            "type": "child",
+            "child_line_color": 11393254,
+            "thickness": 0.8
+        },
+        {
+            "source": "雷古勒斯",
+            "target": "窝_43",
+            "type": "mate",
+            "mate_line_color": 16761035,
+            "thickness": 3
+        },
+        {
+            "source": "赫尔加",
+            "target": "窝_43",
+            "type": "mate",
+            "mate_line_color": 16761035,
+            "thickness": 3
+        },
+        {
+            "source": "窝_43",
+            "target": "小小黑",
             "type": "child",
             "child_line_color": 11393254,
             "thickness": 0.8
