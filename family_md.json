@@ -283,10 +283,10 @@
             "gender": "female"
         },
         {
-            "id": "米粒",
-            "name": "米粒",
-            "photo": "米粒.jpg",
-            "IDcardPhoto": "米粒.jpg",
+            "id": "炸米(米粒)",
+            "name": "炸米(米粒)",
+            "photo": "炸米(米粒).jpg",
+            "IDcardPhoto": "炸米(米粒).jpg",
             "link": "https://mp.weixin.qq.com/s/f7E5GHSubs2Y5Lpb5fej2g",
             "type": "cat",
             "gender": "male"
@@ -1169,15 +1169,6 @@
             "gender": "male"
         },
         {
-            "id": "莉塔",
-            "name": "莉塔",
-            "photo": "莉塔.jpg",
-            "IDcardPhoto": "莉塔.jpg",
-            "link": "",
-            "type": "cat",
-            "gender": "female"
-        },
-        {
             "id": "窝_24",
             "name": "2024/1/15 菌菇",
             "type": "litter"
@@ -1412,15 +1403,6 @@
             "link": "https://mp.weixin.qq.com/s/qpybqnsmluvRtmRYsYDLzA",
             "type": "cat",
             "gender": "female"
-        },
-        {
-            "id": "纽特",
-            "name": "纽特",
-            "photo": "纽特.jpg",
-            "IDcardPhoto": "纽特.jpg",
-            "link": "",
-            "type": "cat",
-            "gender": "male"
         },
         {
             "id": "窝_28",
@@ -2210,7 +2192,7 @@
         },
         {
             "source": "窝_6",
-            "target": "米粒",
+            "target": "炸米(米粒)",
             "type": "child",
             "child_line_color": 11393254,
             "thickness": 0.8
@@ -3028,7 +3010,7 @@
             "thickness": 3
         },
         {
-            "source": "莉塔",
+            "source": "莉塔(夏米娜德)",
             "target": "窝_24",
             "type": "mate",
             "mate_line_color": 16761035,
@@ -3238,7 +3220,7 @@
             "thickness": 0.8
         },
         {
-            "source": "纽特",
+            "source": "纽特(拉威尔)",
             "target": "窝_28",
             "type": "mate",
             "mate_line_color": 16761035,
@@ -3280,7 +3262,7 @@
             "thickness": 0.8
         },
         {
-            "source": "纽特",
+            "source": "纽特(拉威尔)",
             "target": "窝_29",
             "type": "mate",
             "mate_line_color": 16761035,
@@ -3301,7 +3283,7 @@
             "thickness": 0.8
         },
         {
-            "source": "纽特",
+            "source": "纽特(拉威尔)",
             "target": "窝_30",
             "type": "mate",
             "mate_line_color": 16761035,
@@ -3441,7 +3423,7 @@
             "thickness": 3
         },
         {
-            "source": "莉塔",
+            "source": "莉塔(夏米娜德)",
             "target": "窝_33",
             "type": "mate",
             "mate_line_color": 16761035,
